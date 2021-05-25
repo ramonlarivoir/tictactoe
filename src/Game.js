@@ -6,13 +6,16 @@ import { INVALID_MOVE } from 'boardgame.io/core';
 */
 
 export const TicTacToe = {
+  // Cria as células com 9 posições
   setup: () => ({ cells: Array(9).fill(null) }),
 
   moves: {
     clickCell: (G, ctx, id) => {
+      // Valida se a célula já está em uso
       if (G.cells[id] !== null) {
         return INVALID_MOVE;
       }
+      // Seta o id da célula com o id do player atual
       G.cells[id] = ctx.currentPlayer;
     },
   },
